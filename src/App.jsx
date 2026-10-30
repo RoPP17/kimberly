@@ -13,37 +13,33 @@ export default function App() {
   const [activeStanza, setActiveStanza] = useState(LETTER_STANZAS[0]);
   const [cosmosState, setCosmosState] = useState(LETTER_STANZAS[0].shaderState);
   const [supernovaPulse, setSupernovaPulse] = useState(0);
-  const [audioMode, setAudioMode] = useState('muted');
+  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const autoAwakenedRef = useRef(false);
 
   useEffect(() => {
-    const unsub = nocturneAudio.subscribe((mode) => setAudioMode(mode));
+    const unsub = nocturneAudio.subscribe((playing) => setIsPlayingAudio(playing));
     return unsub;
   }, []);
 
-  // Gentle auto-awakening of the felt-piano nocturne on her very first intentional tap/click
+  // Gentle auto-start of Sui Generis on her first touch anywhere on the phone
   useEffect(() => {
-    const awakenOnFirstGesture = (e) => {
+    const awakenOnFirstGesture = () => {
       if (autoAwakenedRef.current) return;
-      // Avoid double-triggering if she explicitly clicked the audio toggle button itself
-      if (e.target && e.target.closest && e.target.closest('header')) {
-        autoAwakenedRef.current = true;
-        return;
-      }
       autoAwakenedRef.current = true;
-      if (nocturneAudio.mode === 'muted') {
-        nocturneAudio.startNocturne();
-      }
+      nocturneAudio.play();
     };
 
     window.addEventListener('pointerdown', awakenOnFirstGesture, { once: true, passive: true });
-    return () => window.removeEventListener('pointerdown', awakenOnFirstGesture);
+    window.addEventListener('scroll', awakenOnFirstGesture, { once: true, passive: true });
+    return () => {
+      window.removeEventListener('pointerdown', awakenOnFirstGesture);
+      window.removeEventListener('scroll', awakenOnFirstGesture);
+    };
   }, []);
 
   const handleStanzaVisible = useCallback((stanza) => {
     setActiveStanza(stanza);
     setCosmosState(stanza.shaderState);
-    nocturneAudio.setHarmony(stanza.shaderState.harmony);
   }, []);
 
   const triggerSupernova = useCallback(() => {
@@ -65,7 +61,12 @@ export default function App() {
   }, []);
 
   const handleResonanceChange = useCallback((closeness) => {
-    nocturneAudio.setHarmony(0.45 + closeness * 0.55);
+    // Keeps shader bloom responsive to physical closeness
+    setCosmosState((prev) => ({
+      ...prev,
+      harmony: Math.min(1.0, 0.5 + closeness * 0.5),
+      warmth: Math.min(1.0, 0.4 + closeness * 0.6),
+    }));
   }, []);
 
   return (
@@ -76,24 +77,18 @@ export default function App() {
         supernovaPulse={supernovaPulse}
       />
 
-      {/* Top Kinematic Telemetry & Dual-Mode Soundscape Bar */}
+      {/* Top Bar with Sui Generis Background Player */}
       <TopObservatoryBar
-        omega={activeStanza.omegaValue}
-        telemetryTag={activeStanza.telemetryTag}
-        audioMode={audioMode}
-        onCycleAudio={() => {
+        isPlaying={isPlayingAudio}
+        onToggleAudio={() => {
           autoAwakenedRef.current = true;
-          nocturneAudio.cycleMode();
-        }}
-        onMuteAudio={() => {
-          autoAwakenedRef.current = true;
-          nocturneAudio.mute();
+          nocturneAudio.toggle();
         }}
       />
 
       {/* Narrative Journey */}
       <main className="relative z-10">
-        {/* ACT I — IMMEDIATELY VISIBLE: ROBERTO'S VERBATIM 6-STANZA LETTER */}
+        {/* ACT I — ROBERTO'S VERBATIM 6-STANZA LETTER */}
         <LetterAct
           activeStanzaId={activeStanza.id}
           onStanzaVisible={handleStanzaVisible}
@@ -103,13 +98,13 @@ export default function App() {
         {/* INTERLUDE — HOLD TO DILATE TIME PORTAL */}
         <TimeDilationPortal onPortalActivated={handlePortalActivated} />
 
-        {/* ACT II — 3D DEPTH-PARALLAX & DARKROOM MEMORIES */}
+        {/* ACT II — MEMORIES IN 3D OPTICAL GLASS (ANTHONY PHOTO) */}
         <MemoriesAct />
 
-        {/* ACT III — INTERACTIVE TWO-BODY HARMONIC OBSERVATORY */}
+        {/* ACT III — AUTONOMOUS TWO-BODY OBSERVATORY (ROBERTO PURSUING KIMBERLY) */}
         <TwoBodyObservatory onResonanceChange={handleResonanceChange} />
 
-        {/* ACT IV & V — FIVE CERTAINTIES, CELESTIAL STAR CAPSULE & SECRET P.D. */}
+        {/* ACT IV & V — FIVE CERTAINTIES (RELATIVITY / LORENTZ INVARIANT) & KEEPSAKE */}
         <CertaintiesAndFinale onTriggerSupernova={triggerSupernova} />
       </main>
     </div>

@@ -182,7 +182,7 @@ def generate_canvas_art():
     f_italic = load_font(serif_fonts, 27)
     f_sub = load_font(mono_fonts, 13)
 
-    draw.text((76, 86), "PARA KIMBERLY  ·  DONDE EL RUIDO SE DETIENE", fill=(232, 195, 145, 195), font=f_mono)
+    draw.text((76, 86), "PARA KIMBERLY", fill=(232, 195, 145, 195), font=f_mono)
     draw.text((74, 215), "Lo curioso de ti.", fill=(244, 239, 234, 245), font=f_title)
     draw.text(
         (76, 304),

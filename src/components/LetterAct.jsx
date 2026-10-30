@@ -67,7 +67,7 @@ export default function LetterAct({ activeStanzaId, onStanzaVisible, onHeartbeat
         </div>
 
         <p className="font-mono-tech text-[10px] tracking-[0.22em] text-[#9A96AD]/80 uppercase">
-          01°14′56″ S · 78°37′00″ W &nbsp;·&nbsp; Donde el ruido se detiene
+          01°14′56″ S · 78°37′00″ W
         </p>
       </div>
 

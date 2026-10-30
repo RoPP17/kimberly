@@ -7,7 +7,7 @@ export const LETTER_STANZAS = [
   {
     id: 'stanza-01',
     roman: 'I',
-    telemetryTag: 'UMBRAL ACÚSTICO · SILENCIO CON SENTIDO',
+    telemetryTag: 'SILENCIO CON SENTIDO',
     omegaValue: 840,
     shaderState: {
       harmony: 0.28,
@@ -30,7 +30,7 @@ export const LETTER_STANZAS = [
   {
     id: 'stanza-02',
     roman: 'II',
-    telemetryTag: 'DESACELERACIÓN · PAUSA EN EL CAOS',
+    telemetryTag: 'PAUSA',
     omegaValue: 310,
     shaderState: {
       harmony: 0.48,
@@ -61,7 +61,7 @@ export const LETTER_STANZAS = [
   {
     id: 'stanza-03',
     roman: 'III',
-    telemetryTag: 'COORDENADA INVARIANTE · LUGAR INTACTO',
+    telemetryTag: 'INVARIANTE',
     omegaValue: 74,
     shaderState: {
       harmony: 0.72,
@@ -84,7 +84,7 @@ export const LETTER_STANZAS = [
   {
     id: 'stanza-04',
     roman: 'IV',
-    telemetryTag: 'MÁS ALLÁ DEL AZAR · EXISTENCIA',
+    telemetryTag: 'EXISTENCIA',
     omegaValue: 18,
     shaderState: {
       harmony: 0.86,
@@ -107,7 +107,7 @@ export const LETTER_STANZAS = [
   {
     id: 'stanza-05',
     roman: 'V',
-    telemetryTag: 'SINGULARIDAD · CERTEZA ABSOLUTA',
+    telemetryTag: 'CERTEZA',
     omegaValue: 0,
     isMonumental: true,
     shaderState: {
@@ -127,7 +127,7 @@ export const LETTER_STANZAS = [
   {
     id: 'stanza-06',
     roman: 'VI',
-    telemetryTag: 'HORIZONTE ATEMPORAL · MEMORIA FUTURA',
+    telemetryTag: 'HORIZONTE',
     omegaValue: 0,
     shaderState: {
       harmony: 1.0,
@@ -153,10 +153,10 @@ export const LETTER_STANZAS = [
 export const MEMORIES = [
   {
     id: 'mem-01',
-    catalog: 'INSTANTE 01 · CREPÚSCULO CARMENERE',
+    catalog: 'INSTANTE 01 · CREPÚSCULO ANTHONY',
     title: 'La habilidad tuya de volver extraordinario cualquier lugar',
     caption:
-      'Un pasillo cualquiera, una botella de Carmenere en la mano y tú a mi lado. No hace falta ningún escenario de película cuando es tu mirada la que desarma todo mi ruido.',
+      'Un pasillo cualquiera, una botella de Anthony en la mano y tú a mi lado. No hace falta ningún escenario de película cuando es tu mirada la que desarma todo mi ruido.',
     webp: './assets/photos/memory-01.webp',
     jpg: './assets/photos/memory-01.jpg',
     depth: './assets/photos/memory-01-depth.jpg',
@@ -207,9 +207,9 @@ export const CERTAINTIES = [
   },
   {
     index: '03',
-    label: 'LO INVARIANTE',
-    title: 'Un espacio adentro que no admite segundas versiones',
-    body: 'Pueden cambiar las etapas, torcerse los planes y pasar cientos de personas. El lugar donde te guardo no compite con nadie porque fue hecho a tu medida exacta.',
+    label: 'LA RELATIVIDAD',
+    title: 'La única constante invariable en todo mi sistema',
+    body: 'En física aprendí que todo marco de referencia es relativo y que el tiempo se dilata con el movimiento; que en el universo no existen puntos fijos y que la única constante universal invariable es c (la velocidad de la luz en el vacío). Pero si tuviera que formular mi propia ley, tú serías el único invariante de Lorentz en mi vida: no importa a qué velocidad gire el mundo a mi alrededor ni cuántas cosas cambien, tú sigues siendo la única constante que no cambia.',
   },
   {
     index: '04',
@@ -233,5 +233,5 @@ export const SECRET_POSTSCRIPT = {
     'Pero si abriste esta estrella pequeña, mereces la verdad completa sin escudos: si por mí fuera, no elegiría recordarte dentro de muchos años… elegiría quedarme a construir cada uno de esos años contigo.',
     'Si te preguntas cuánto tardé en fabricar este rincón del universo para ti: mucho menos del tiempo que paso pensándote en un día cualquiera.',
   ],
-  signature: 'Siempre tuyo, Andrés',
+  signature: 'Siempre tuyo, Roberto',
 };
