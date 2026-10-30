@@ -110,18 +110,10 @@ export default function CertaintiesAndFinale({ onTriggerSupernova }) {
       {/* ACT V: THE CELESTIAL FINALE */}
       <section
         id="cielo-final"
-        aria-label="Epílogo bajo el cielo"
-        className="relative z-10 mx-auto max-w-3xl scroll-mt-20 px-6 pt-16 pb-28 sm:px-10 sm:pt-24 sm:pb-36 text-center"
+        aria-label="Cielo final"
+        className="relative z-10 mx-auto max-w-3xl scroll-mt-20 px-6 pt-10 pb-28 sm:px-10 sm:pt-16 sm:pb-36 text-center"
       >
-        <div className="mx-auto mb-10 h-20 w-[1px] bg-gradient-to-b from-transparent via-[#E8C391]/45 to-transparent" />
-
-        <h2 className="font-display text-3xl sm:text-5xl font-light text-[#F4EFEA] leading-[1.24] mb-6">
-          En la carta escribí <em className="italic glow-phrase">«ojalá volver a verla»</em>…
-        </h2>
-
-        <p className="font-editorial text-lg sm:text-xl text-[#F4EFEA]/85 font-light leading-[1.82] mb-12 max-w-2xl mx-auto">
-          …pensando en qué pasaría si un día la vida nos llevara lejos. Pero hoy estamos aquí, bajo el mismo cielo, y no quería guardarme para dentro de veinte años la verdad más simple y más grande que tengo: <span className="glow-rose">te amo como a nadie en mi vida, Kimberly.</span>
-        </p>
+        <div className="mx-auto mb-10 h-16 w-[1px] bg-gradient-to-b from-transparent via-[#E8C391]/45 to-transparent" />
 
         {/* Central Star Illumination & Downloadable Keepsake Sanctuary */}
         <div className="smoked-glass rounded-3xl p-7 sm:p-11 text-center">

@@ -226,12 +226,12 @@ export const CERTAINTIES = [
 ];
 
 export const SECRET_POSTSCRIPT = {
-  eyebrow: 'ESTRELLA OCULTA · P.D. FUERA DE LA CARTA',
-  title: 'Lo que me callé en el último renglón',
+  eyebrow: 'ESTRELLA OCULTA · P.D.',
+  title: 'Una última cosa...',
   paragraphs: [
-    'Al final de la carta te escribí «ojalá volver a verla» pensando en qué pasaría si algún día la vida nos llevara lejos.',
-    'Pero si abriste esta estrella pequeña, mereces la verdad completa sin escudos: si por mí fuera, no elegiría recordarte dentro de muchos años… elegiría quedarme a construir cada uno de esos años contigo.',
-    'Si te preguntas cuánto tardé en fabricar este rincón del universo para ti: mucho menos del tiempo que paso pensándote en un día cualquiera.',
+    'Si abriste esto, no te tomes tan literal lo de «incluso después de muchos años pensaré ojalá volver a verla» como si fuera una despedida dramática de película.',
+    'Solo quería hacerte un detalle bonito y que supieras lo importante que eres, a mi manera.',
+    'Y sí, programar todo este cielo fue mi excusa perfecta para pensar en ti.',
   ],
-  signature: 'Siempre tuyo, Roberto',
+  signature: 'Roberto',
 };
