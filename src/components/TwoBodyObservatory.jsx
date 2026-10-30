@@ -178,13 +178,18 @@ export default function TwoBodyObservatory({ onResonanceChange }) {
       ctx.arc(rx, ry, 4, 0, Math.PI * 2);
       ctx.fill();
 
-      // Crisp edge-aware label for R
+      // Crisp radial-repelled label for R (mathematically never crosses K's label)
       ctx.font = '10px "JetBrains Mono", monospace';
-      ctx.fillStyle = 'rgba(244, 239, 234, 0.82)';
+      ctx.fillStyle = 'rgba(244, 239, 234, 0.84)';
       const rLabel = closeness > 0.65 ? 'Andrés (en calma)' : 'Andrés (ruido)';
       const rTextW = ctx.measureText(rLabel).width;
-      const rLabelX = rx + 12 + rTextW > width - 12 ? rx - 12 - rTextW : rx + 12;
-      ctx.fillText(rLabel, rLabelX, ry - 9);
+      const outX = -ux;
+      const outY = -uy;
+      const rawRx = rx + outX * 22 - rTextW * 0.5;
+      const rawRy = ry + outY * 22 + 3;
+      const clampedRx = Math.max(10, Math.min(width - rTextW - 10, rawRx));
+      const clampedRy = Math.max(16, Math.min(height - 10, rawRy));
+      ctx.fillText(rLabel, clampedRx, clampedRy);
 
       // Draw Body K (Kimberly)
       const haloR = 36 + closeness * 16;
@@ -202,13 +207,16 @@ export default function TwoBodyObservatory({ onResonanceChange }) {
       ctx.arc(kx, ky, 6.2, 0, Math.PI * 2);
       ctx.fill();
 
-      // Crisp edge-aware label for K
+      // Crisp radial-repelled label for K (placed on opposite side of R)
       ctx.font = '11px "JetBrains Mono", monospace';
       ctx.fillStyle = '#E8C391';
       const kLabel = '✦ Kimberly';
       const kTextW = ctx.measureText(kLabel).width;
-      const kLabelX = kx + 14 + kTextW > width - 12 ? kx - 14 - kTextW : kx + 14;
-      ctx.fillText(kLabel, kLabelX, ky + 4);
+      const rawKx = kx + ux * 24 - kTextW * 0.5;
+      const rawKy = ky + uy * 24 + 4;
+      const clampedKx = Math.max(10, Math.min(width - kTextW - 10, rawKx));
+      const clampedKy = Math.max(16, Math.min(height - 10, rawKy));
+      ctx.fillText(kLabel, clampedKx, clampedKy);
 
       if (frameCounter % 10 === 0) {
         const pct = Math.round(closeness * 100);
